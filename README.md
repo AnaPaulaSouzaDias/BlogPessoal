@@ -1,4 +1,27 @@
-# BlogPessoal
+
+<div align="center">
+  <sub> Projeto proposto pela Generation Brasil - Uma Rede Social de conexão entre Ongs que precisam de alimento e empresas fornecedoras por meio de doações.
+Construido com  diligência por 
+<a href="https://github.com/AnaPaulaSouzaDias">Ana Paula</a>,
+<a href="https://github.com/HenriqueUriel">Henrique Uriel</a>,
+<a href="https://github.com/pirangy">Ariel Pirangy</a>,
+<a href="https://github.com/stefanitosi2">Stefani Tosi</a>,
+<a href="https://github.com/talita032">Talita Gleice</a>
+  </sub>
+</div>
+
+# :computer: Tecnologias
+Este projeto usou as seguintes tecnologias
+
+* [Java]   
+* [Spring Boot]   
+* [Spring Security]   
+* [Postgree SQL]  
+* [Html]   
+* [Css]   
+* [JavaScript] 
+* [Angular]     
+
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.1.1.
 
@@ -25,3 +48,5 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+Projeto promovido pela Generation Brasil 🚀.
