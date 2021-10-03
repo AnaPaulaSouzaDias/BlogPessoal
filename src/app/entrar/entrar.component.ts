@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { environment } from 'src/environments/environment';
 import { UserLogin } from '../model/UserLogin';
+import { AuthService } from '../service/auth.service';
 
 @Component({
   selector: 'app-entrar',
@@ -13,21 +12,17 @@ export class EntrarComponent implements OnInit {
   userLogin: UserLogin = new UserLogin()
 
   constructor(
-    private auth: AuthService,
-    private router: Router
+    private auth: AuthService
   ) { }
 
-  ngOnInit() {
-    window.scroll(0, 0)
+  ngOnInit(){
+    window.scroll(0,0)
   }
-  entrar() {
-    this.auth.entrar(this.userLogin).subscribe((resp: UserLogin) => {
-      this.userLogin = resp
-    })
 
-    environment.foto = this.userLogin.foto
-    environment.id = this.userId.id
-    environment.nome = this.userNome.nome
-    environment.token = this.userToken.token
+  entrar(){
+      this.auth.entrar(this.userLogin).subscribe((resp: UserLogin) => {
+            this.userLogin = resp
+            
+      })
   }
 }
