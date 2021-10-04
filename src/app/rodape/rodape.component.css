@@ -19,3 +19,7 @@ ul.social-network li{
 .fa-github-square:hover{
   color: black;
 }
+
+footer{
+  background-color: indigo-300;
+}

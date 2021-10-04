@@ -9,6 +9,7 @@ const routes: Routes = [
 
   { path: 'cadastrar', component: CadastrarComponent },
   { path: 'entrar', component: EntrarComponent },
+  
   { path: 'inicio', component: InicioComponent }
 
 ];
