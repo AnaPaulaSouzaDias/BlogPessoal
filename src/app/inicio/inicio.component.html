@@ -23,8 +23,8 @@
   </div>
 </div>
 
+<!-- Menu das Postagens-->
 <div class="container mb-5 mt-5" id="postagens">
-
   <nav>
     <div class="nav nav-tabs d-flex justify-content-center" id="nav-tab" role="tablist">
 
@@ -38,21 +38,51 @@
 
     </div>
   </nav>
-  <div class="tab-content" id="nav-tabContent">
-
+  <div class="tab-content mt-3" id="nav-tabContent">
+<!-- Cards de Postagens-->
     <div class="tab-pane fade show active" id="todasPostagens" role="tabpanel" aria-labelledby="nav-todasPostagens-tab">
-      Todas as Postagens
+      
+      <div class="card-columns">
+        <div class="card text-center" *ngFor='let item of listaPostagens'>
+            <div class="card-body">
+              <h5 class="card-title m-0">{{item.titulo}}</h5>
+              <small class="text-muted">Tema: {{item.tema.descricao}}</small>
+              <p class="card-text mt-3">{{item.texto}}</p>
+              <p class="card-text"><small class="text-muted">by: {{item.usuario.nome}}</small></p>
+            </div>
+        </div>
     </div>
-
+    </div>
     <div class="tab-pane fade" id="minhasPostagens" role="tabpanel" aria-labelledby="nav-minhasPostagens-tab">
-      Minhas Postagens
-    </div>
 
-    <div class="tab-pane fade" id="postagensTema" role="tabpanel" aria-labelledby="nav-postagensTema-tab">
-      Postagens por tema
-    </div>
+      <div class="card-columns">
+          <div class="card text-center" *ngFor='let item of user.postagem'>
+              <div class="card-body">
+                <h5 class="card-title m-0">{{item.titulo}}</h5>
+                <small class="text-muted">Tema: {{item.tema.descricao}}</small>
+                <p class="card-text mt-3">{{item.texto}}</p>
+                  <a class="text-info mr-3" [routerLink]="['/postagem-edit', item.id]">Editar</a>
+                  <a class="text-danger" [routerLink]="['/postagem-delete', item.id]">Apagar</a>
+              </div>
+          </div>
+      </div>
+
   </div>
 
+  <div class="tab-pane fade" id="postagemTema" role="tabpanel" aria-labelledby="nav-postagemTema-tab">
+      
+      <div class="card-columns" *ngFor='let tema of listaTemas'>
+          <div class="card text-center" *ngFor='let item of tema.postagem'>
+              <div class="card-body">
+                <h5 class="card-title m-0">{{item.titulo}}</h5>
+                <p class="card-text mt-3">{{item.texto}}</p>
+                <p class="card-text"><small class="text-muted">by: {{item.usuario.nome}}</small></p>
+              </div>
+          </div>
+      </div>
+
+  </div>
+</div>
 </div>
 
 <!-- Modal  do botão novas postagens-->
