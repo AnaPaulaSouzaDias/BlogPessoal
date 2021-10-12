@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http'
+import { HttpClient, HttpHeaders } from '@angular/common/http'
 import { UserLogin } from '../model/UserLogin';
 import { Observable } from 'rxjs';
 import { User } from '../model/User';
@@ -10,9 +10,11 @@ import { environment } from 'src/environments/environment.prod';
 })
 export class AuthService {
 
-  constructor(
-    private http: HttpClient
-  ) { }
+  constructor(private http: HttpClient) { }
+
+  token = {
+    headers: new HttpHeaders().set('Authorization', environment.token)
+  }
 
   entrar(userLogin: UserLogin): Observable<UserLogin> {
     return this.http.post<UserLogin>('https://blogpessoalanasouzadias.herokuapp.com/usuarios/logar', userLogin)
@@ -22,14 +24,28 @@ export class AuthService {
     return this.http.post<User>('https://blogpessoalanasouzadias.herokuapp.com/usuarios/cadastrar', user)
   }
 
-  logado(){
-      let ok: boolean = false
+  atualizar(user: User): Observable<User> {
+    this.token = {
+      headers: new HttpHeaders().set('Authorization', environment.token)
+    }
+    return this.http.put<User>('https://blogpessoalanasouzadias.herokuapp.com/usuarios/atualizar', user, this.token)
+  }
 
-      if(environment.token != ''){
-            ok=true
-      }
+  getByIdUser(id: number): Observable<User> {
+    this.token = {
+      headers: new HttpHeaders().set('Authorization', environment.token)
+    }
+    return this.http.get<User>(`https://blogpessoalanasouzadias.herokuapp.com/usuarios/${id}`, this.token)
+  }
 
-      return ok
+  logado() {
+    let ok: boolean = false
+
+    if (environment.token != '') {
+      ok = true
+    }
+
+    return ok
   }
 }
 
